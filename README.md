@@ -4,22 +4,24 @@
 ![Udacity Logo](https://upload.wikimedia.org/wikipedia/commons/3/3b/Udacity_logo.png)
 
 ## Overview
-
 This project is an online weather journal application that uses a Web API to display weather information based on zip code and records the user's current emotional status.
 The app is powered by:
-    -HTML
-    -CSS
-    -Javascript
-    -NodeJS
+
+   * HTML
+   * CSS
+   * Javascript
+   * NodeJS
 
 ## Details
 
-* **server.js**
-    * An app endpoint JS object was created in the server file.
+* _server.js_
+
+     * An app endpoint JS object was created in the server file.
         ```
         projectData = {};
         ```
-    * Node was installed on local machine. Express, Cors, and Body Parser were required and their instances were created in the file.
+
+     * Node was installed on local machine. Express, Cors, and Body Parser were required and their instances were created in the file.
         ```
         const express = require('express')
         const app = express();
@@ -31,7 +33,7 @@ The app is powered by:
         app.use(cors());
         ```
 
-    * A local server was created with a specific port.
+     * A local server was created with a specific port.
         ```
         app.use(express.static('website'));
 
@@ -43,8 +45,8 @@ The app is powered by:
         };
         ```
 
-    * Added a GET route that returns `projectData` and a POST route that adds the incoming data to `projectData`.
-    * A server-side function was used to create entries(temperature, date, user repsponse) in the app endpoint with the data recieved from the client side.
+     * Added a GET route that returns `projectData` and a POST route that adds the incoming data to `projectData`.
+     * A server-side function was used to create entries(temperature, date, user repsponse) in the app endpoint with the data recieved from the client side.
         ```
         function addData (req, res) {
         console.log(req.body);
@@ -58,10 +60,10 @@ The app is powered by:
         };
         ```
 
-* **app.js**
+* _app.js_
 
-    * Created API credentials on OpenWeatherMap.com and the API key was stored in the **app.js** file.
-    *An asynchronous function was used to fetch the data from the Web API
+     * Created API credentials on OpenWeatherMap.com and the API key was stored in the `app.js` file.
+     * An asynchronous function was used to fetch the data from the Web API.
         ```
         const getApiWeather = async (baseURL, zipCode, apiKey) =>{
         const res= await fetch(`${baseURL}?zip=${zipCode}&appid=${apiKey}&units=metric`)
@@ -73,7 +75,7 @@ The app is powered by:
         }
         };
         ```
-    *Another async function was used to POST the data acquired from the Web API to the app endpoint.
+     * Another async function was used to POST the data acquired from the Web API to the app endpoint.
         ```
         const postWeatherData = async ( url ='', data = {}) =>{
             console.log(data);
@@ -94,7 +96,7 @@ The app is powered by:
             }
         };
         ```
-    *Another async function to GET the desired data from the server and update the webpage with such data.
+     * Another async function to GET the desired data from the server and update the webpage with such data.
         ```
         const updateUI = async () => {
             const req = await fetch('/all');
@@ -110,7 +112,7 @@ The app is powered by:
             }
         };
         ```
-    *All async functions were chained in a promise and stored inside an event listener triggered by the user entering his info to add dynamicity to the app.
+     * All async functions were chained in a promise and stored inside an event listener triggered by the user entering his info to add dynamicity to the app.
         ```
         document.getElementById('generate').addEventListener('click', ()=>{
                 if(!zipCode.value || !userFeelings.value){
@@ -131,19 +133,23 @@ The app is powered by:
             });
         ```
 
-* **index.html**
-        *No changes were made to the starter code
+* _index.html_
 
-* **style.css**
-        *A few adjustments were made to the starter code to make the webpage more appealing.
+     * No changes were made to the starter code
+
+* _style.css_
+
+     * A few adjustments were made to the starter code to make the webpage more appealing.
+
 
 ### Acknowledgments
 
-    * https://www.udacity.com/
-    * https://developer.mozilla.org/en-US/
-    * https://stackoverflow.com/questions
-    * https://openweathermap.org/api
-    * https://cssgradient.io/
+   * https://www.udacity.com/
+   * https://developer.mozilla.org/en-US/
+   * https://stackoverflow.com/questions
+   * https://openweathermap.org/api
+   * https://cssgradient.io/
 
-**Ahmed Emad Ghodaia**
+
+**Ahmed Emad Ghodaia**  
 Udacity Web Development Professional Track Student
