@@ -12,7 +12,7 @@ let newDate = +d.getMonth()+1 +'.'+ d.getDate()+'.'+ d.getFullYear();
 
 // Defining personal OpenWeatherMap API url and key
 let baseURL = 'http://api.openweathermap.org/data/2.5/weather';
-let apiKey = '6fb3ec4563e472807e62014f554b7202'
+const apiKey = '6fb3ec4563e472807e62014f554b7202'
 
 // Creating an event listener on the generate button
 document.getElementById('generate').addEventListener('click', ()=>{
